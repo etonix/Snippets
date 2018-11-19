@@ -14,6 +14,7 @@ unique.php
 Examples:
 
  maid.php
+ 
     require_once("unique.php");
     require_once("maid.php");
     $var = json_encode(array("key"=>"value", "key2"=>array("level")));
@@ -24,6 +25,7 @@ Examples:
     -------------------------   
  
  filesecure.php
+
     require_once("unique.php");
     require_once("maid.php");
     $secure = FileSecure::instanceGen();

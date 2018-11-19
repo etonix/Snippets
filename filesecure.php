@@ -129,14 +129,16 @@
       }
       return isset($err) ? false : $source;
     }
+    
     private function _getExtension($source) {
         $i = strrpos($source, '.');
         return substr($source, $i+1);
     }
+
     private function _genHash($length) {
       if(version_compare(PHP_VERSION, '7.1.0', '>=') {
-        if(!$length || $length == "") return bin2hex(random_bytes(16));
-        else return bin2hex(random_bytes($length/2));
+        if(!$length || $length == "") return bin2hex(random_bytes(32));
+        else return bin2hex(random_bytes($length));
       } else {
         if(!$length || $length == "") return substr(preg_replace('/([^A-Za-z0-9])/i', '', base64_encode(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM))), 0, 32);
         else return substr(preg_replace('/([^A-Za-z0-9])/i', '', base64_encode(mcrypt_create_iv($length, MCRYPT_DEV_URANDOM))), 0, $length);
